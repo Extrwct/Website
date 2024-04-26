@@ -30,4 +30,15 @@ facts_list = ["Elon Musk mengklaim bahwa jejaring sosial dirancang untuk membuat
 def facts():
     return f'<p>{random.choice(facts_list)} </p> <a href="/">Back to home!</a>'
 
+@app.route("/pass_gen")
+def pass_gen():
+    elements = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    password = ""
+
+    for i in range(15):
+        password += random.choice(elements)
+
+    return f'<p>{password} </p> <a href="/">Back to home!</a>'
+
+
 app.run(debug=True)
